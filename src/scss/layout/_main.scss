@@ -1,9 +1,10 @@
 // Main styles
 $primary-color: #fcaf32;
 $secondary-color: #fc888e;
+$light-red: #ffe0e3;
 $white: #fff;
 $dark: rgb(0, 0, 0);
-$light-grey: #f8ecd9;
+$light-grey: rgb(236, 235, 235);
 $dark-grey: rgb(30, 30, 31);
 
 html,
@@ -87,9 +88,14 @@ body {
     margin-bottom: 1rem;
     transition: background 0.3s ease-in-out;
     border: 1px solid $dark;
+    outline: none;
 
     &:hover {
       background: $light-grey;
+    }
+
+    &:invalid {
+      background: $light-red;
     }
   }
 

@@ -32,6 +32,9 @@
           id="email"
           class="form-text"
           placeholder="E-mail"
+          required
+          pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"
+          title="email must contain @ and domain name"
         />
         <input
           type="password"
@@ -39,6 +42,9 @@
           id="password"
           placeholder="Password"
           class="form-text"
+          required
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"
+          title="password must contain: minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character"
         />
         <div class="form-box">
           <input
@@ -46,6 +52,7 @@
             name="agree"
             id="agree"
             class="form-checkox"
+            required
           /><label for="agree" class="form-checkox-label"
             >I agree to terms & conditions.</label
           >
