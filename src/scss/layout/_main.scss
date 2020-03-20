@@ -1,12 +1,17 @@
 // Main styles
 $primary-color: #fcaf32;
 $secondary-color: #fc888e;
+$white: #fff;
+$dark: rgb(0, 0, 0);
+$light-grey: #f8ecd9;
+$dark-grey: rgb(30, 30, 31);
 
 html,
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
@@ -27,9 +32,121 @@ body {
   height: 60px;
   outline: none;
   padding: 0 20px;
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 
   &:hover {
     transform: scale(1.15);
+  }
+}
+
+.popup {
+  width: 200px;
+  background-color: $white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding: 2rem;
+  text-align: center;
+  transition: display 3s ease-in-out;
+  display: none;
+
+  &-title {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  &-escape {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: $dark-grey;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    font-size: 0.7rem;
+    padding: 0.8rem 0 0.8rem 0.8rem;
+    width: 90%;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease-in-out;
+    border: 1px solid $dark;
+
+    &:hover {
+      background: $light-grey;
+    }
+  }
+
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &-checkox {
+    display: none;
+
+    &:checked + .form-checkox-label::before {
+      content: '\f00c';
+      position: absolute;
+      left: -23px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 700;
+    }
+  }
+
+  &-checkox-label {
+    font-size: 0.8rem;
+    position: relative;
+    margin-left: 25px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      border: 1px solid $dark;
+      position: absolute;
+      left: -23px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-button {
+    display: block;
+    width: 100%;
+    background: $dark;
+    color: $white;
+    text-transform: uppercase;
+    border: none;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: $dark-grey;
+    }
   }
 }
