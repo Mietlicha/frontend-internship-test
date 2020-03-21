@@ -1,0 +1,15 @@
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.animation {
+  animation: fade 3s both;
+}
+
+.animation-reverse {
+  animation: fade 0.2s reverse;
+}

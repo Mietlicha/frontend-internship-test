@@ -4,23 +4,22 @@ const popupEscape = document.querySelector('.popup-escape');
 const form = document.querySelector('.popup__form');
 const thank = document.querySelector('.thank-message');
 
-const afterSubmit = () => {
-  popup.style.display = 'none';
-  clickMe.style.display = 'none';
-  thank.style.display = 'block';
-};
-
 clickMe.addEventListener('click', () => {
-  popup.style.display = 'block';
+  popup.classList.add('animation-reverse');
+  setTimeout(() => popup.classList.add('show'), 200);
+  setTimeout(() => popup.classList.remove('animation-reverse'), 300);
 });
 
 popupEscape.addEventListener('click', () => {
-  popup.style.display = 'none';
+  setTimeout(() => popup.classList.remove('show'), 200);
+  setTimeout(() => form.reset(), 300);
 });
 
 form.addEventListener('submit', e => {
   e.preventDefault();
   form.reset();
-
-  setTimeout(afterSubmit, 3000);
+  popup.classList.add('animation');
+  clickMe.classList.add('hide');
+  thank.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 3000);
 });
